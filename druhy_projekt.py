@@ -1,6 +1,7 @@
 """
 projekt_2.py: druhý projekt do Engeto Online Python Akademie
-Bulls & Cows
+
+--- Bulls & Cows ---
 author: Lukasz Orszulik
 email: luki93@seznam.cz
 discord: Lukasz Orszulik, wo0cash
@@ -19,6 +20,8 @@ while game_on:
     #TODO pozdrav
     print("Hi there!\n" + sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
     print(sline)
+    a_number = random.randint(1000, 9999)
+    print(a_number)
     break
 #TODO vytvoř 4 mistne cislo random nesmí začínát 0
 
