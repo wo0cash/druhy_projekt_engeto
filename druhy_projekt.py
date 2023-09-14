@@ -22,8 +22,19 @@ while game_on:
     print(sline)
     a_number = random.randint(1000, 9999)
     print(a_number)
+    #TODO while smyčka hádání čísla
+    while True:
+        (guess_number := input("Enter a number: "))
+        #podminky, hlidani aby byly cisla 4, nezacinala 0 a byly všechny numerické
+        if not guess_number.isnumeric() and len(guess_number) != 4 and guess_number[0] == "0":
+            print("You must type only digits")
+        else:
+            #TODO smyčka for bude iterovat hadane cislo a porovnavat s inputem uzivatele
+        
+        
+        
+        break
     break
-#TODO vytvoř 4 mistne cislo random nesmí začínát 0
 
 #TODO Hráč hádá číslo. Program jej upozorní, pokud zadá číslo kratší nebo delší než 4 čísla, 
 # pokud bude obsahovat duplicity, začínat nulou, příp. obsahovat nečíselné znaky
