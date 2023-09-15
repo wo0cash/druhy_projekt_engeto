@@ -6,24 +6,20 @@ author: Lukasz Orszulik
 email: luki93@seznam.cz
 discord: Lukasz Orszulik, wo0cash
 """
-
-#TODO naimportuj potřebné knihovny a moduly
 import random
 
 #pomocné proměnné
 sline = "-" * 50
 game_on = True
 
-#opakující se smyčka - hra
 print("Hi there!")
 while game_on:
     guesses = 0
-    #TODO pozdrav
     print(sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
     print(sline)
     a_number = str(random.randint(1000, 9999))
     print(a_number)
-    #TODO while smyčka hádání čísla
+    
     while True:
         b_number = input("Enter a number: ")
         #podminky, hlidani aby byly cisla 4, nezacinala 0 a byly všechny numerické
@@ -37,28 +33,23 @@ while game_on:
             guesses = guesses + 1
             a_list = list(enumerate(a_number)) #vytvoření indexů pro čísla
             b_list = list(enumerate(b_number))
-            #print(a_list)
-            #print(b_list)
-
+        
             cows = []
             bulls = []
             
-            #budeme porovnávat 1. jestli jsou zadaná čísla na indexech -> bulls
-            #a jestli se nacházi v čísle -> cows
             for index, cislo in b_list:
                 if cislo ==  a_list[index][1]:
-                    print("Bull")
+                    #print("Bull")
                     bulls.append(cislo)
                 else:
                     if cislo in a_number and cislo not in cows:
-                        print("cow")
+                        #print("cow")
                         cows.append(cislo)
-        
                
-        print(bulls)
-        print(cows)   
+        print(f"{len(bulls)} bulls, {len(cows)} cows")
+        print(sline) 
         if len(bulls) == 4:
-            print(f"Correct, you've guessed the right number in {guesses} guesses!")
+            print(f"Correct, you've guessed the right number in {guesses} guess!") if guesses == 1 else print(f"Correct, you've guessed the right number in {guesses} guesses!")
             if guesses < 4:
                 print("That`s amazing")
             elif guesses < 7:
