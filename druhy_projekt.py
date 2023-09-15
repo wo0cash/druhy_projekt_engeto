@@ -13,19 +13,18 @@ import random
 #pomocné proměnné
 sline = "-" * 50
 game_on = True
-guesses = 0
 
 #opakující se smyčka - hra
-print("Hi there!\n" + sline)
+print("Hi there!")
 while game_on:
+    guesses = 0
     #TODO pozdrav
-    print("I`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
+    print(sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
     print(sline)
     a_number = str(random.randint(1000, 9999))
     print(a_number)
     #TODO while smyčka hádání čísla
     while True:
-        
         b_number = input("Enter a number: ")
         #podminky, hlidani aby byly cisla 4, nezacinala 0 a byly všechny numerické
         if not b_number.isnumeric():
@@ -70,12 +69,12 @@ while game_on:
         else:
             continue
 
-    input("Do you want to play again? (y/n): ")
-    if input == "y":
+    guessing = input("Do you want to play again? (y/n): ")
+    if guessing == "y":
         game_on = True
     else:
         game_on = False
-    
+print(sline + "\nThank you for your game\nBye!\n" + sline)    
 
 
             
