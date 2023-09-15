@@ -7,12 +7,13 @@ email: luki93@seznam.cz
 discord: Lukasz Orszulik, wo0cash
 """
 
-#TODO naimportuj potřebné knnihovny a moduly
+#TODO naimportuj potřebné knihovny a moduly
 import random
 
 #pomocné proměnné
 sline = "-" * 50
 game_on = True
+guesses = 0
 
 #opakující se smyčka - hra
 print("Hi there!\n" + sline)
@@ -24,6 +25,7 @@ while game_on:
     print(a_number)
     #TODO while smyčka hádání čísla
     while True:
+        
         b_number = input("Enter a number: ")
         #podminky, hlidani aby byly cisla 4, nezacinala 0 a byly všechny numerické
         if not b_number.isnumeric():
@@ -33,14 +35,15 @@ while game_on:
         elif b_number[0] == "0":
             print("The first digit must be between 1 - 9")
         else:
-            print(b_number)
+            guesses = guesses + 1
             a_list = list(enumerate(a_number)) #vytvoření indexů pro čísla
             b_list = list(enumerate(b_number))
-            print(a_list)
-            print(b_list)
+            #print(a_list)
+            #print(b_list)
 
             cows = []
             bulls = []
+            
             #budeme porovnávat 1. jestli jsou zadaná čísla na indexech -> bulls
             #a jestli se nacházi v čísle -> cows
             for index, cislo in b_list:
@@ -51,34 +54,33 @@ while game_on:
                     if cislo in a_number and cislo not in cows:
                         print("cow")
                         cows.append(cislo)
-            
+        
+               
+        print(bulls)
+        print(cows)   
+        if len(bulls) == 4:
+            print(f"Correct, you've guessed the right number in {guesses} guesses!")
+            if guesses < 4:
+                print("That`s amazing")
+            elif guesses < 7:
+                print("Average score")
+            else:
+                print("Not so good...")
             break
-    break
-print(bulls)
-print(cows)
+        else:
+            continue
 
-            #for b in b_number:
-            #    if b in a_number and b not in cows:
-            #        
-            #        print("je tam, ale na na mistě - cows")
-            #        # vytvoř list kde uchováš cows
-            #        cows.append(b)
-            #        print(cows) 
-            #    #else:
+    input("Do you want to play again? (y/n): ")
+    if input == "y":
+        game_on = True
+    else:
+        game_on = False
+    
 
-                
-            #    for j in int(b_number):
-            #        if j == i:
 
-            #TODO smyčka for bude iterovat hadane cislo a porovnavat s inputem uzivatele
-           # print("OK")
+            
         
    
-
-#TODO Hráč hádá číslo. Program jej upozorní, pokud zadá číslo kratší nebo delší než 4 čísla, 
-# pokud bude obsahovat duplicity, začínat nulou, příp. obsahovat nečíselné znaky
-
-# TODO program vyhodnoti tip uzivatele - bull cisla na spravnem miste, cow - uhadnuta cisla ale na jiných pozicích
 
 # TODO počítej čas jaký uplyne než hráč uhodne výsledek
 
