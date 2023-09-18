@@ -7,6 +7,14 @@ email: luki93@seznam.cz
 discord: Lukasz Orszulik, wo0cash
 """
 import random
+import time
+
+def time_format(start, stop):
+    el_time = int(round((stop - start), 0))
+    el_time_min = el_time // 60
+    el_time_sec = el_time % 60
+    print(f"Elapsed time: {el_time_min}min {el_time_sec}sec")
+
 
 #pomocné proměnné
 sline = "-" * 50
@@ -15,6 +23,7 @@ game_on = True
 print("Hi there!")
 while game_on:
     guesses = 0
+    start_time = time.time()
     print(sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
     print(sline)
     a_number = str(random.randint(1000, 9999))
@@ -59,6 +68,8 @@ while game_on:
             break
         else:
             continue
+    end_time = time.time()
+    time_format(start_time, end_time)
 
     guessing = input("Do you want to play again? (y/n): ")
     if guessing == "y":
