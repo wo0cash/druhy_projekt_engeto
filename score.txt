@@ -1,4 +1,4 @@
-
+--- SCORE ---
 Datum: 09/28/23 | Guesses: 2 | Time: None
 Datum: 09/28/23 | Guesses: 1 | Time: None
 Datum: 09/28/23 | Guesses: 2 | Time: None
