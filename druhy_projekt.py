@@ -58,34 +58,30 @@ while game_on:
                     if cislo in a_number and cislo not in cows:
                         #print("cow")
                         cows.append(cislo)
-        #---Showing the result of each guessing       
-        print(f"{len(bulls)} bulls, {len(cows)} cows")
-        print(sline) 
-        #---Showing the final result
-        if len(bulls) == 4:
-            print(f"Correct, you've guessed the right number in {guesses} guess!") if guesses == 1 else print(f"Correct, you've guessed the right number in {guesses} guesses!")
-            if guesses < 4:
-                print("That`s amazing")
-            elif guesses < 7:
-                print("Average score")
+            #---Showing the result of each guessing       
+            print(f"{len(bulls)} bulls, {len(cows)} cows")
+            print(sline) 
+            #---Showing the final result
+            if len(bulls) == 4:
+                print(f"Correct, you've guessed the right number in {guesses} guess!") if guesses == 1 else print(f"Correct, you've guessed the right number in {guesses} guesses!")
+                if guesses < 4:
+                    print("That`s amazing")
+                elif guesses < 7:
+                    print("Average score")
+                else:
+                    print("Not so good...")
+                break
             else:
-                print("Not so good...")
-            break
-        else:
-            continue
+                continue
     #---Ending time counting
     end_time = time.time()
     print(time_format(start_time, end_time))
     date = datetime.datetime.now()
     fdate = date.strftime("%x")
-    
-    # TODO zapiš do textového souboru prubeh hry - počet odhadu a cas
+    #---Writing score to score.txt file
     txt_file = open("score.txt", mode="a")
-    txt_file.write(f"\nDatum: {fdate} | Guesses: {guesses} | Time: {time_format(start_time, end_time)}")
+    txt_file.write(f"\nDatum: {fdate} | Guesses: {guesses} | {time_format(start_time, end_time)}")
     txt_file.close()
-
-
-
     #---Condition for continue
     guessing = input("Do you want to play again? (y/n): ")
     if guessing == "y":
