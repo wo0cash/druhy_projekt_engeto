@@ -8,12 +8,14 @@ discord: Lukasz Orszulik, wo0cash
 """
 import random
 import time
+import datetime
 #---Time formatting function
 def time_format(start, stop):
     el_time = int(round((stop - start), 0))
     el_time_min = el_time // 60
     el_time_sec = el_time % 60
-    print(f"Elapsed time: {el_time_min}min {el_time_sec}sec")
+    el_time = f"Elapsed time: {el_time_min}min {el_time_sec}sec"
+    return el_time
 
 
 #---Auxiliary variables
@@ -73,7 +75,17 @@ while game_on:
             continue
     #---Ending time counting
     end_time = time.time()
-    time_format(start_time, end_time)
+    print(time_format(start_time, end_time))
+    date = datetime.datetime.now()
+    fdate = date.strftime("%x")
+    
+    # TODO zapiš do textového souboru prubeh hry - počet odhadu a cas
+    txt_file = open("score.txt", mode="a")
+    txt_file.write(f"\nDatum: {fdate} | Guesses: {guesses} | Time: {time_format(start_time, end_time)}")
+    txt_file.close()
+
+
+
     #---Condition for continue
     guessing = input("Do you want to play again? (y/n): ")
     if guessing == "y":
@@ -82,4 +94,4 @@ while game_on:
         game_on = False
 print(sline + "\nThank you for your game\nBye!\n" + sline)    
 
-# TODO zapiš do textového souboru prubeh hry - počet odhadu a cas
+
