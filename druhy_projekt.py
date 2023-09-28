@@ -8,7 +8,7 @@ discord: Lukasz Orszulik, wo0cash
 """
 import random
 import time
-
+#---Time formatting function
 def time_format(start, stop):
     el_time = int(round((stop - start), 0))
     el_time_min = el_time // 60
@@ -16,10 +16,11 @@ def time_format(start, stop):
     print(f"Elapsed time: {el_time_min}min {el_time_sec}sec")
 
 
-#pomocné proměnné
+#---Auxiliary variables
 sline = "-" * 50
 game_on = True
 
+#---Main game loop - Greeting, generating a 4 digit number and start time counting
 print("Hi there!")
 while game_on:
     guesses = 0
@@ -27,11 +28,11 @@ while game_on:
     print(sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
     print(sline)
     a_number = str(random.randint(1000, 9999))
-    print(a_number)
-    
+    print(a_number) #just for checking
+    #---Input form user -> guessing the number
     while True:
         b_number = input("Enter a number: ")
-        #podminky, hlidani aby byly cisla 4, nezacinala 0 a byly všechny numerické
+        #---Conditions, 4 digits, all digits, and [0] index != 0
         if not b_number.isnumeric():
             print("You must type only digits")
         elif len(b_number) != 4:
@@ -39,13 +40,14 @@ while game_on:
         elif b_number[0] == "0":
             print("The first digit must be between 1 - 9")
         else:
+            #---Counting guesses
             guesses = guesses + 1
-            a_list = list(enumerate(a_number)) #vytvoření indexů pro čísla
+            a_list = list(enumerate(a_number)) #generating indexes for each number
             b_list = list(enumerate(b_number))
         
             cows = []
             bulls = []
-            
+            #---Conditions whether it's bull or cow
             for index, cislo in b_list:
                 if cislo ==  a_list[index][1]:
                     #print("Bull")
@@ -54,9 +56,10 @@ while game_on:
                     if cislo in a_number and cislo not in cows:
                         #print("cow")
                         cows.append(cislo)
-               
+        #---Showing the result of each guessing       
         print(f"{len(bulls)} bulls, {len(cows)} cows")
         print(sline) 
+        #---Showing the final result
         if len(bulls) == 4:
             print(f"Correct, you've guessed the right number in {guesses} guess!") if guesses == 1 else print(f"Correct, you've guessed the right number in {guesses} guesses!")
             if guesses < 4:
@@ -68,21 +71,15 @@ while game_on:
             break
         else:
             continue
+    #---Ending time counting
     end_time = time.time()
     time_format(start_time, end_time)
-
+    #---Condition for continue
     guessing = input("Do you want to play again? (y/n): ")
     if guessing == "y":
         game_on = True
     else:
         game_on = False
 print(sline + "\nThank you for your game\nBye!\n" + sline)    
-
-
-            
-        
-   
-
-# TODO počítej čas jaký uplyne než hráč uhodne výsledek
 
 # TODO zapiš do textového souboru prubeh hry - počet odhadu a cas
