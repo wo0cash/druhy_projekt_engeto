@@ -25,6 +25,7 @@ game_on = True
 #---Main game loop - Greeting, generating a 4 digit number and start time counting
 print("Hi there!")
 while game_on:
+    user = input("What's your name? ")
     guesses = 0
     start_time = time.time()
     print(sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
@@ -80,7 +81,7 @@ while game_on:
     fdate = date.strftime("%x")
     #---Writing score to score.txt file
     txt_file = open("score.txt", mode="a")
-    txt_file.write(f"\nDatum: {fdate} | Guesses: {guesses} | {time_format(start_time, end_time)}")
+    txt_file.write(f"\nDate: {fdate} | {user: <10}| Guesses: {guesses: <3}| {time_format(start_time, end_time)}")
     txt_file.close()
     #---Condition for continue
     guessing = input("Do you want to play again? (y/n): ")

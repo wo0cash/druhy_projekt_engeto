@@ -1,12 +1,3 @@
 --- SCORE ---
-Datum: 09/28/23 | Guesses: 2 | Time: None
-Datum: 09/28/23 | Guesses: 1 | Time: None
-Datum: 09/28/23 | Guesses: 2 | Time: None
-Datum: 09/28/23 | Guesses: 5 | Time: None
-Datum: 09/28/23 | Guesses: 1 | Time: Elapsed time: 0min 4sec
-Datum: 09/28/23 | Guesses: 0 | Time: Elapsed time: 0min 6sec
-Datum: 09/28/23 | Guesses: 1 | Time: Elapsed time: 0min 4sec
-Datum: 09/28/23 | Guesses: 3 | Time: Elapsed time: 0min 8sec
-Datum: 09/28/23 | Guesses: 3 | Time: Elapsed time: 0min 23sec
-Datum: 09/28/23 | Guesses: 1 | Time: Elapsed time: 0min 6sec
-Datum: 09/28/23 | Guesses: 9 | Time: Elapsed time: 0min 26sec
+
+Date: 09/30/23 | Lukas     | Guesses: 1  | Elapsed time: 0min 4sec
