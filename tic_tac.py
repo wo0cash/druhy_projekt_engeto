@@ -39,7 +39,7 @@ def check_winner():
     if board[2:7:2] == ["x", "x", "x"]:
         return "x"
 
-board = ["","","","","","","","",""]
+board = [""] * 9
 
 print("""
 Welcome to Tic Tac Toe
@@ -88,14 +88,14 @@ while game_on:
             grid()
             print("It's a tie!")    
         round += 1
-    os.system("clear")
+        os.system("clear")
     game = input("Do you wanna play again? (y/n)")        
     while game:
         if game == "n":
             game_on = False
             break
         elif game == "y":
-            
+            board = [""] * 9
             break
         else:
             game = input(f'Must type "y" or "n"')
