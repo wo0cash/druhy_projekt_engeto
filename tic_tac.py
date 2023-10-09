@@ -7,8 +7,6 @@ email: luki93@seznam.cz
 discord: Lukasz Orszulik, wo0cash
 """
 import random
-import time
-import datetime
 print("""
 Welcome to Tic Tac Toe
 ========================================
@@ -23,3 +21,29 @@ marks in a:
 ========================================""")
 
 print("Let\'s start the game\n" + "-" * 40)
+
+#TODO hra smyčka dokud hra neskončí
+game_on = True
+while game_on:
+    #TODO list v listu 3x3 do kterého se budou doplňovat x a o
+    grid = ["","","","","","","","",""]
+    print(f"""
++---+---+---+
+|{grid[0] :^3}|{grid[1] :^3}|{grid[2] :^3}|
++---+---+---+
+|{grid[3] :^3}|{grid[4] :^3}|{grid[5] :^3}|   
++---+---+---+         
+|{grid[6] :^3}|{grid[7] :^3}|{grid[8] :^3}| 
++---+---+---+  
+          """)
+    
+    player_o = input("Player o | Please enter your move number: ")
+
+
+#TODO input uživatele 1
+#TODO input uživatele 2
+
+#TODO symčka ověřující jsou 3 kameny h/v/diag jinak pokračuje hra
+
+#TODO výhra
+    break
