@@ -39,6 +39,12 @@ def check_winner():
     if board[2:7:2] == ["x", "x", "x"]:
         return "x"
 
+def clear_scrn():
+    if(os.name == 'posix'):
+        return os.system('clear')
+    else:
+        return os.system('cls')
+
 board = [""] * 9
 
 print("""
@@ -81,6 +87,7 @@ while game_on:
          
         winner = check_winner()
         if winner:
+            clear_scrn()
             grid()
             print(f"\n{'~' * 40}\nPlayer {winner} is a winner!!!\n{'~' * 40}\n")
             break
@@ -88,7 +95,9 @@ while game_on:
             grid()
             print("It's a tie!")    
         round += 1
-        os.system("clear")
+
+        clear_scrn()
+
     game = input("Do you wanna play again? (y/n)")        
     while game:
         if game == "n":
@@ -96,6 +105,7 @@ while game_on:
             break
         elif game == "y":
             board = [""] * 9
+            clear_scrn()
             break
         else:
             game = input(f'Must type "y" or "n"')
