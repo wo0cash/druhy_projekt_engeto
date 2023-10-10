@@ -92,8 +92,10 @@ while game_on:
             print(f"\n{'~' * 40}\nPlayer {winner} is a winner!!!\n{'~' * 40}\n")
             break
         elif round == 9:
+            clear_scrn()
             grid()
             print("It's a tie!")    
+            break
         round += 1
 
         clear_scrn()
@@ -109,6 +111,8 @@ while game_on:
             break
         else:
             game = input(f'Must type "y" or "n"')
+clear_scrn()
+print("Thank you, goodbye!")
 
 
            
