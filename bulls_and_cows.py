@@ -17,6 +17,37 @@ def time_format(start, stop):
     el_time = f"Elapsed time: {el_time_min}min {el_time_sec}sec"
     return el_time
 
+def num_gen():
+    a_number = str(random.randint(1000, 9999))
+    a_list = list(enumerate(a_number))
+    print(a_number) #just for checking
+    return a_list, a_number
+
+def bull_cow():
+    """Conditions whether it\'s bull or cow"""
+    for index, cislo in b_list:
+        if cislo ==  a_list[index][1]:
+            bulls.append(cislo)
+        else:
+            if cislo in a_number and cislo not in cows:
+                cows.append(cislo)
+
+def final_result():
+    """Final result"""    
+    print(f"Correct, you've guessed the right number in {guesses}. guess!") if guesses == 1 else print(f"Correct, you've guessed the right number in {guesses} guesses!")
+    if guesses < 4:
+        print("That`s amazing")
+    elif guesses < 7:
+        print("Average score")
+    else:
+        print("Not so good...")
+    
+
+def guess_count():
+    """Counting number of guesses"""
+    global guesses
+    guesses += 1
+
 
 #---Auxiliary variables
 sline = "-" * 50
@@ -31,6 +62,7 @@ while game_on:
     print(sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
     print(sline)
     a_number = str(random.randint(1000, 9999))
+    a_list = list(enumerate(a_number))
     print(a_number) #just for checking
     #---Input form user -> guessing the number
     while True:
@@ -43,37 +75,24 @@ while game_on:
         elif b_number[0] == "0":
             print("The first digit must be between 1 - 9")
         else:
-            #---Counting guesses
-            guesses = guesses + 1
-            a_list = list(enumerate(a_number)) #generating indexes for each number
+            guess_count()
+            
             b_list = list(enumerate(b_number))
-        
+
             cows = []
             bulls = []
-            #---Conditions whether it's bull or cow
-            for index, cislo in b_list:
-                if cislo ==  a_list[index][1]:
-                    #print("Bull")
-                    bulls.append(cislo)
-                else:
-                    if cislo in a_number and cislo not in cows:
-                        #print("cow")
-                        cows.append(cislo)
-            #---Showing the result of each guessing       
+            bull_cow()
+            
+            #---Showing the result of each guessing
             print(f"{len(bulls)} bulls, {len(cows)} cows")
             print(sline) 
+            
             #---Showing the final result
             if len(bulls) == 4:
-                print(f"Correct, you've guessed the right number in {guesses} guess!") if guesses == 1 else print(f"Correct, you've guessed the right number in {guesses} guesses!")
-                if guesses < 4:
-                    print("That`s amazing")
-                elif guesses < 7:
-                    print("Average score")
-                else:
-                    print("Not so good...")
+                final_result()
                 break
-            else:
-                continue
+        
+    
     #---Ending time counting
     end_time = time.time()
     print(time_format(start_time, end_time))
