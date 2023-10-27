@@ -53,11 +53,9 @@ def continue_game() -> bool:
     while cont_game: 
         x = input("Do you want to play again? (y/n): ")
         if x == "y":
-            
             cont_game = False
             return True
         elif x == "n":
-            
             cont_game = False
             return False
         else:
@@ -71,7 +69,7 @@ game_on = True
 #---Main game loop - Greeting, generating a 4 digit number and start time counting
 print("\nHi there!")
 while game_on:
-    user = input("What's your name? ")
+    user = input(f"{sline}\nWhat's your name? ")
     if len(user) <= 0:
         print("You're name must be at least 1 character long!")
     else:
