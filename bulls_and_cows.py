@@ -56,7 +56,7 @@ def final_result(bulls: int) -> str:
     else:
         return True
     
-def game_round(input):
+def game_round():
     """Game round.
     -> Counts numer of guesses
     -> Checks the input (only digits, 4 digits,  from 1000 - 9999)
@@ -64,17 +64,18 @@ def game_round(input):
     guesses = 0
     game_round = True
     while game_round:
-        if not input.isnumeric():
+        number = input("Enter a number: ")
+        if not number.isnumeric():
             print("You must type only digits")
-        elif len(input) != 4:
+        elif len(number) != 4:
             print("The number must be 4 digits long")
-        elif input[0] == "0":
+        elif number[0] == "0":
             print("The number must be between 1000-9999")
         else:
             #---Counting guesses
             guesses = guesses + 1
             #---Conditions whether it's bull or cow
-            bulls = bull_cow(a_number, input)
+            bulls = bull_cow(a_number, number)
             #---Showing the final result
             game_round = final_result(bulls)
                 
@@ -99,9 +100,6 @@ def score():
     txt_file = open("score.txt", mode="a")
     txt_file.write(f"\nDate: {fdate} | {user: <10}| Guesses: {guesses: <3}| {time_format(start_time, end_time)}")
     txt_file.close()
-
-
-
             
 #---Auxiliary variables
 sline = "-" * 50
@@ -121,7 +119,7 @@ while game_on:
         a_number, a_list = num_gen()
         guesses = 0
         #---Game round
-        game_round(input("Enter a number: "))
+        game_round()
         #---Time stamp - end
         end_time = time.time()
         #---Elapsed time
