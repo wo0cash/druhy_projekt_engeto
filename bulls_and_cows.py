@@ -19,14 +19,16 @@ def time_format(start, stop):
     return el_time
 
 def num_gen():
+    """Generates a random number and a list with indexes for each digit"""
     a = str(random.randint(1000, 9999))
     a_list = list(enumerate(a))
     print(a) #just for checking
     return a, a_list
 
 def bull_cow(a_number, b_number):
-    """Conditions whether it\'s bull or cow"""
-    a_list = list(enumerate(a_number)) #generating indexes for each number
+    """Generates a list with indexes for each digit
+    Conditions whether it\'s bull or cow
+    Showing how many b/c"""
     b_list = list(enumerate(b_number))
     cows = []
     bulls = []
@@ -39,8 +41,6 @@ def bull_cow(a_number, b_number):
     print(f"{len(bulls)} bulls, {len(cows)} cows")
     print(sline) 
     return bulls
-
-
 
 def final_result(bulls: int) -> str:
     """Shows the final result - number of guesses"""    
@@ -81,6 +81,7 @@ def game_round(input):
             game_round = final_result(bulls)
                 
 def continue_game() -> bool:
+    """Condition for continuing the game"""
     cont_game = True
     while cont_game: 
         x = input("Do you want to play again? (y/n): ")
@@ -102,12 +103,11 @@ def score():
     txt_file.close()
 
             
-
 #---Auxiliary variables
 sline = "-" * 50
 game_on = True
 
-#---Main game loop - Greeting, generating a 4 digit number and start time counting
+#---Main game loop---
 print("\nHi there!")
 while game_on:
     user = input(f"{sline}\nWhat's your name? ")
