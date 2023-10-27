@@ -18,10 +18,10 @@ def time_format(start, stop):
     return el_time
 
 def num_gen():
-    a_number = str(random.randint(1000, 9999))
-    a_list = list(enumerate(a_number))
-    print(a_number) #just for checking
-    return a_list, a_number
+    a = str(random.randint(1000, 9999))
+    a_list = list(enumerate(a))
+    print(a) #just for checking
+    return a, a_list
 
 def bull_cow():
     """Conditions whether it\'s bull or cow"""
@@ -48,13 +48,21 @@ def guess_count():
     global guesses
     guesses += 1
 
-def continue_game(input) -> bool:
-    if input == "y":
-        game_on = True
-        return game_on
-    else:
-        game_on = False
-        return game_on
+def continue_game() -> bool:
+    cont_game = True
+    while cont_game: 
+        x = input("Do you want to play again? (y/n): ")
+        if x == "y":
+            
+            cont_game = False
+            return True
+        elif x == "n":
+            
+            cont_game = False
+            return False
+        else:
+            print("Must type - 'y'/'n'")
+            
 
 #---Auxiliary variables
 sline = "-" * 50
@@ -69,10 +77,12 @@ while game_on:
     else:
         guesses = 0
         start_time = time.time()
-        print(sline + "\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.")
-        print(sline)
-        a_number = str(random.randint(1000, 9999))
-        print(a_number) #just for checking
+        print(f"{sline}\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.\n{sline}")
+        a_number, a_list = num_gen()
+        #a_number = str(random.randint(1000, 9999))
+        #print(a_number) #just for checking
+        
+        
         #---Input form user -> guessing the number
         while True:
             b_number = input("Enter a number: ")
@@ -125,7 +135,7 @@ while game_on:
         txt_file.write(f"\nDate: {fdate} | {user: <10}| Guesses: {guesses: <3}| {time_format(start_time, end_time)}")
         txt_file.close()
 
-        continue_game(input("Do you want to play again? (y/n): "))
+    game_on = continue_game()
         
 print(f"{sline}\nThank you for your game\nBye!\n{sline}")    
 

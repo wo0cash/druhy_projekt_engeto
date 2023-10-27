@@ -4,3 +4,15 @@ Date: 09/30/23 | Lukas     | Guesses: 1  | Elapsed time: 0min 4sec
 Date: 10/10/23 | Lukas     | Guesses: 1  | Elapsed time: 0min 17sec
 Date: 10/27/23 | l         | Guesses: 1  | Elapsed time: 0min 4sec
 Date: 10/27/23 | Luk       | Guesses: 1  | Elapsed time: 0min 4sec
+Date: 10/27/23 | Luk       | Guesses: 1  | Elapsed time: 0min 5sec
+Date: 10/27/23 | L         | Guesses: 1  | Elapsed time: 0min 5sec
+Date: 10/27/23 | luk       | Guesses: 1  | Elapsed time: 0min 4sec
+Date: 10/27/23 | Karl      | Guesses: 1  | Elapsed time: 0min 4sec
+Date: 10/27/23 | Luk       | Guesses: 1  | Elapsed time: 0min 7sec
+Date: 10/27/23 | Karl      | Guesses: 1  | Elapsed time: 0min 4sec
+Date: 10/27/23 | L         | Guesses: 1  | Elapsed time: 0min 5sec
+Date: 10/27/23 | l         | Guesses: 1  | Elapsed time: 0min 6sec
+Date: 10/27/23 | l         | Guesses: 1  | Elapsed time: 0min 4sec
+Date: 10/27/23 | ce        | Guesses: 1  | Elapsed time: 0min 4sec
+Date: 10/27/23 | Lukasz    | Guesses: 1  | Elapsed time: 0min 5sec
+Date: 10/27/23 | l         | Guesses: 1  | Elapsed time: 0min 4sec
