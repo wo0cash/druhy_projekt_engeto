@@ -2,3 +2,5 @@
 
 Date: 09/30/23 | Lukas     | Guesses: 1  | Elapsed time: 0min 4sec
 Date: 10/10/23 | Lukas     | Guesses: 1  | Elapsed time: 0min 17sec
+Date: 10/27/23 | l         | Guesses: 1  | Elapsed time: 0min 4sec
+Date: 10/27/23 | Luk       | Guesses: 1  | Elapsed time: 0min 4sec
