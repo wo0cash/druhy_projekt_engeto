@@ -62,10 +62,8 @@ def game_round(input):
     -> Checks the input (only digits, 4 digits,  from 1000 - 9999)
     """
     guesses = 0
-    #---Input form user -> guessing the number
     game_round = True
     while game_round:
-        #---Conditions, 4 digits, all digits, and [0] index != 0
         if not input.isnumeric():
             print("You must type only digits")
         elif len(input) != 4:
@@ -80,8 +78,8 @@ def game_round(input):
             #---Showing the final result
             game_round = final_result(bulls)
                 
-def continue_game() -> bool:
-    """Condition for continuing the game"""
+def play_again() -> bool:
+    """Play again - function"""
     cont_game = True
     while cont_game: 
         x = input("Do you want to play again? (y/n): ")
@@ -102,33 +100,36 @@ def score():
     txt_file.write(f"\nDate: {fdate} | {user: <10}| Guesses: {guesses: <3}| {time_format(start_time, end_time)}")
     txt_file.close()
 
+
+
             
 #---Auxiliary variables
 sline = "-" * 50
 game_on = True
 
-#---Main game loop---
+#---Main game loop
 print("\nHi there!")
 while game_on:
     user = input(f"{sline}\nWhat's your name? ")
     if len(user) <= 0:
         print("You're name must be at least 1 character long!")
     else:
+        #---Time stamp - start
         start_time = time.time()
         print(f"{sline}\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.\n{sline}")
+        #---Random number
         a_number, a_list = num_gen()
-        
         guesses = 0
-        
+        #---Game round
         game_round(input("Enter a number: "))
-        
+        #---Time stamp - end
         end_time = time.time()
-        
+        #---Elapsed time
         print(time_format(start_time, end_time))
-        
+        #---Writing score to a .txt
         score()
-
-    game_on = continue_game()
+    #---Play again
+    game_on = play_again()
         
 print(f"{sline}\nThank you for your game\nBye!")    
 
