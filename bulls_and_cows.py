@@ -31,6 +31,8 @@ def bull_cow():
         else:
             if cislo in a_number and cislo not in cows:
                 cows.append(cislo)
+    print(f"{len(bulls)} bulls, {len(cows)} cows")
+    print(sline) 
 
 def final_result():
     """Final result"""    
@@ -60,6 +62,12 @@ def continue_game() -> bool:
             return False
         else:
             print("Must type - 'y'/'n'")
+def score():
+    """Writing score to score.txt file"""
+    txt_file = open("score.txt", mode="a")
+    txt_file.write(f"\nDate: {fdate} | {user: <10}| Guesses: {guesses: <3}| {time_format(start_time, end_time)}")
+    txt_file.close()
+
             
 
 #---Auxiliary variables
@@ -77,9 +85,6 @@ while game_on:
         start_time = time.time()
         print(f"{sline}\nI`ve generated a random 4 digit number for you. \nLet's play a bulls and cows game.\n{sline}")
         a_number, a_list = num_gen()
-        #a_number = str(random.randint(1000, 9999))
-        #print(a_number) #just for checking
-        
         
         #---Input form user -> guessing the number
         while True:
@@ -100,17 +105,9 @@ while game_on:
                 cows = []
                 bulls = []
                 #---Conditions whether it's bull or cow
-                for index, cislo in b_list:
-                    if cislo ==  a_list[index][1]:
-                        #print("Bull")
-                        bulls.append(cislo)
-                    else:
-                        if cislo in a_number and cislo not in cows:
-                            #print("cow")
-                            cows.append(cislo)
-                #---Showing the result of each guessing       
-                print(f"{len(bulls)} bulls, {len(cows)} cows")
-                print(sline) 
+                bull_cow()
+                      
+                
                 #---Showing the final result
                 if len(bulls) == 4:
                     print(f"Correct, you've guessed the right number in {guesses} guess!") if guesses == 1 else print(f"Correct, you've guessed the right number in {guesses} guesses!")
@@ -128,13 +125,10 @@ while game_on:
         print(time_format(start_time, end_time))
         date = datetime.datetime.now()
         fdate = date.strftime("%x")
-        #---Writing score to score.txt file
-        txt_file = open("score.txt", mode="a")
-        txt_file.write(f"\nDate: {fdate} | {user: <10}| Guesses: {guesses: <3}| {time_format(start_time, end_time)}")
-        txt_file.close()
+        score()
 
     game_on = continue_game()
         
-print(f"{sline}\nThank you for your game\nBye!\n{sline}")    
+print(f"{sline}\nThank you for your game\nBye!")    
 
 
