@@ -100,13 +100,14 @@ def score():
     txt_file = open("score.txt", mode="a")
     txt_file.write(f"\nDate: {fdate} | {user: <10}| Guesses: {guesses: <3}| {time_format(start_time, end_time)}")
     txt_file.close()
-            
+
 #---Auxiliary variables
 sline = "-" * 50
-game_on = True
 
 #---Main game loop
+
 print("\nHi there!")
+game_on = True
 while game_on:
     user = input(f"{sline}\nWhat's your name? ")
     if len(user) <= 0:
